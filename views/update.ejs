@@ -1,0 +1,84 @@
+<div class="container mx-auto pt-24 px-5">
+    <h1 class="uppercase text-center tracking-wide text-slate-100 text-3xl lg:text-4xl font-semibold">Update
+        Employee
+    </h1>
+    <hr class="w-2/5 lg:w-72 text-center mx-auto border border-indigo-700 mt-2">
+
+    <div class="w-6/12 mx-auto bg-indigo-700 mt-10 p-12 rounded-lg">
+        <% if (typeof errors != 'undefined') { %>
+        <div class="bg-red-600 text-slate-100 rounded w-6/12 p-4">
+            <ul>
+                <% errors.forEach(err => { %>
+                <li><%= err.msg %> </li>
+                <% }) %>
+            </ul>
+        </div>
+        <% } %>
+
+        <form action="/update?_method=PUT" method="post">
+            <input type="hidden" name="_id" value="<%= employee._id %>">
+            <input type="hidden" name="oldFullname"
+                value="<%=(employee.oldFullname) ? employee.oldFullname.trim() : employee.fullname.trim()%>">
+
+            <div class="mb-5">
+                <label for="fullname" class="block text-slate-100 text-lg">Fullname:</label>
+                <input type="text" value="<%= employee.fullname %>" name="fullname" id="fullname"
+                    placeholder="Enter your fullname..."
+                    class="w-full px-4 py-3 rounded-lg text-slate-100 bg-slate-900 mt-2 focus:outline-none" autofocus
+                    autocomplete required />
+            </div>
+            <div class="mb-5">
+                <label for="nip" class="block text-slate-100 text-lg">Nip:</label>
+                <input type="text" value="<%= employee.nip %>" name="nip" id="nip" placeholder="Enter your Nip..."
+                    class="w-full px-4 py-3 rounded-lg text-slate-100 bg-slate-900 mt-2 focus:outline-none" autofocus
+                    autocomplete required />
+            </div>
+            <div class="mb-5">
+                <label for="phone" class="block text-slate-100 text-lg">Phone:</label>
+                <input type="text" value="<%= employee.phone %>" name="phone" id="phone"
+                    placeholder="Enter your Phone..."
+                    class="w-full px-4 py-3 rounded-lg text-slate-100 bg-slate-900 mt-2 focus:outline-none" autofocus
+                    autocomplete required />
+            </div>
+            <div class="mb-5">
+                <label for="email" class="block text-slate-100 text-lg">Email:</label>
+                <input type="email" value="<%= employee.email %>" name="email" id="email"
+                    placeholder="Enter your Email..."
+                    class="w-full px-4 py-3 rounded-lg text-slate-100 bg-slate-900 mt-2 focus:outline-none" autofocus
+                    autocomplete required />
+            </div>
+            <div class="mb-5">
+                <label for="address" class="block text-slate-100 text-lg">Address:</label>
+                <input type="address" value="<%= employee.address %>" name="address" id="address"
+                    placeholder="Enter your Address..."
+                    class="w-full px-4 py-3 rounded-lg text-slate-100 bg-slate-900 mt-2 focus:outline-none" autofocus
+                    autocomplete required />
+            </div>
+            <div class="mb-5">
+                <label for="status" class="block text-slate-100 text-lg">Status:</label>
+                <select name="status" id="status"
+                    class="mt-2 py-2 px-3 outline-none bg-slate-900 text-base text-slate-100 cursor-pointer">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="suspended">Suspended</option>
+                </select>
+            </div>
+            <div class="mb-5">
+                <label for="date" class="block text-slate-100 text-lg">Create at:</label>
+                <input type="date" value="<%= employee.date %> " name="date" id="date"
+                    class="mt-2 py-2 px-3 bg-slate-900 text-slate-100 text-base outline-none cursor-pointer" />
+            </div>
+
+            <div class="mt-10 flex flex-row items-center justify-between">
+                <button type="submit"
+                    class="bg-green-600 hover:bg-green-700 text-slate-100 text-left font-semibold rounded-md px-4 py-3">Save
+                    Change
+                </button>
+
+                <a href="/employee"
+                    class="bg-slate-100 hover:bg-slate-300 text-slate-900 font-semibold rounded-md px-4 py-3">Back
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

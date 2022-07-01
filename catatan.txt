@@ -1,0 +1,36 @@
+<% users.map(user => { %>
+                <div class="p-4 md:w-1/3">
+                    <div class="flex rounded-lg h-full bg-slate-800 bg-opacity-60 p-8 flex-col">
+                        <div class="flex items-center mb-3">
+                            <div
+                                class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-white text-lg title-font font-semibold"><%= user.name %> </h2>
+                        </div>
+                        <div class="mt-2">
+                            <ul>
+                                <li class="py-2 text-base capitalize">
+                                    <p class="font-semibold">Email :</p>
+                                    <%= user.email %>
+                                </li>
+                                <li class="py-2 text-base capitalize">
+                                    <p class="font-semibold">address :</p>
+                                    <%= user.address.street %>
+                                </li>
+                                <li class="py-2 text-base capitalize">
+                                    <p class="font-semibold">Phone :</p>
+                                    <%= user.phone %>
+                                </li>
+                                <li class="py-2 text-base capitalize">
+                                    <p class="font-semibold">Website :</p>
+                                    <%= user.website %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>

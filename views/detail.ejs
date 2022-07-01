@@ -1,0 +1,71 @@
+<div class="container mx-auto pt-24 px-5">
+    <h1 class="uppercase text-center tracking-wide text-slate-100 text-3xl lg:text-4xl font-semibold">Detail
+        Employee
+    </h1>
+    <hr class="w-2/5 lg:w-72 text-center mx-auto border border-indigo-700 mt-2">
+
+    <div class="w-6/12 mx-auto bg-slate-100 p-8 rounded-tl-xl rounded-tr-xl mt-10">
+        <div class="text-right">
+            <a href="/employee"
+                class="bg-slate-800 hover:bg-slate-900 text-slate-100 font-semibold rounded-md px-4 py-3">Back
+            </a>
+        </div>
+
+        <ul class="text-slate-900">
+            <li class="border-b border-indigo-800 my-5 font-semibold">
+                <span class="text-lg text-indigo-900 capitalize">Fullname :</span>
+                <%= detail.fullname %>
+            </li>
+            <li class="border-b border-indigo-800 my-5 font-semibold">
+                <span class="text-lg text-indigo-900 capitalize">NIP :</span>
+                <%= detail.nip%>
+            </li>
+            <li class="border-b border-indigo-800 my-5 font-semibold">
+                <span class="text-lg text-indigo-900 capitalize">phone :</span>
+                <%= detail.phone %>
+            </li>
+            <li class="border-b border-indigo-800 my-5 font-semibold">
+                <span class="text-lg text-indigo-900 capitalize">Email :</span>
+                <%= detail.email %>
+            </li>
+            <li class="border-b border-indigo-800 my-5 font-semibold">
+                <span class="text-lg text-indigo-900 capitalize">address :</span>
+                <%= detail.address %>
+            </li>
+            <li class="border-b border-indigo-800 my-5 font-semibold">
+                <% let status = '' %>
+                <% if (detail.status === 'inactive') { %>
+                <% status = 'bg-red-600' %>
+                <% } else if(detail.status === 'suspended') { %>
+                <% status = 'bg-yellow-600' %>
+                <% } else { %>
+                <% status = 'bg-green-600' %>
+                <% } %>
+
+                <span class="text-lg text-indigo-900 capitalize">status :</span>
+                <p class="text-slate-100 inline-block capitalize px-4 rounded py-1 mb-2 <%= status %>">
+                    <%= detail.status %> </p>
+            </li>
+            <li class="border-b border-indigo-800 my-5 font-semibold">
+                <span class="text-lg text-indigo-900 capitalize">Created :</span>
+                <%= new Date(detail.date).toLocaleDateString() %>
+            </li>
+        </ul>
+
+        <div class="flex flex-row justify-between items-center mt-4">
+            <a href="/updateEmployee/<%= detail._id %>"
+                class="bg-blue-600 hover:bg-blue-700 text-slate-100 font-semibold rounded-md px-4 py-3">Update
+                Employee
+            </a>
+
+            <form action="/employee?_method=DELETE" method="post">
+                <input type="hidden" name="fullname" value="<%= detail.fullname %>">
+
+                <button type="submit"
+                    class="bg-red-600 hover:bg-red-700 text-slate-100 text-left font-semibold rounded-md px-4 py-3">Delete
+                    Employee
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

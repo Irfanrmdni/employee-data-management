@@ -1,0 +1,78 @@
+<!-- component -->
+<section class="flex flex-row h-screen items-center">
+    <div class="bg-indigo-600 w-6/12 h-screen hidden lg:block">
+        <img src="https://images.unsplash.com/photo-1576267423429-569309b31e84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            alt="" class="w-full h-full object-cover">
+    </div>
+
+    <div
+        class="bg-slate-900 w-full lg:w-6/12 h-screen lg:px-20 xl:px-32 md:px-32 px-12 flex items-center justify-center">
+        <div class="w-full h-100">
+            <h1 class="text-3xl font-bold leading-tight text-slate-100">Register your account</h1>
+
+            <form class="mt-6" action="/register/users" method="post">
+                <% if (typeof errors != 'undefined') { %>
+                <div class="bg-red-600 text-slate-100 rounded-lg my-4 w-full p-2">
+                    <ul>
+                        <% errors.forEach(err => { %>
+                        <li class="mx-8 py-2 text-base list-decimal"><%= err.msg %></li>
+                        <% }) %>
+                    </ul>
+                </div>
+                <% } %>
+
+                <div>
+                    <label class="block text-slate-400">Name</label>
+                    <input type="text" name="name" placeholder="Enter name"
+                        class="w-full px-4 py-3 rounded-lg bg-slate-200 mt-2 border focus:border-indigo-500 focus:bg-slate-100 focus:outline-none"
+                        autofocus autocomplete required>
+                </div>
+
+                <div class="my-4">
+                    <label class="block text-slate-400">Username</label>
+                    <input type="text" name="username" placeholder="Enter Username"
+                        class="w-full px-4 py-3 rounded-lg bg-slate-200 mt-2 border focus:border-indigo-500 focus:bg-slate-100 focus:outline-none"
+                        autofocus autocomplete required>
+                </div>
+
+                <div>
+                    <label class="block text-slate-400">Password</label>
+                    <input type="password" name="password" placeholder="Enter Password"
+                        class="w-full px-4 py-3 rounded-lg bg-slate-200 mt-2 border focus:border-indigo-500 focus:bg-slate-100 focus:outline-none"
+                        required>
+                </div>
+
+                <button type="submit" class="w-full block text-center uppercase bg-indigo-500 hover:bg-indigo-600 focus:bg-indigo-600 text-slate-100 font-semibold rounded-lg
+                px-4 py-3 mt-8">Create Account</button>
+            </form>
+
+            <hr class="my-6 border-slate-500 w-full">
+
+            <button type="submit"
+                class="w-full block bg-slate-100 border border-slate-300 hover:bg-slate-300 focus:bg-slate-300 text-slate-900 font-semibold rounded-lg px-4 py-3">
+                <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6 h-6"
+                        viewBox="0 0 48 48">
+                        <defs>
+                            <path id="a"
+                                d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" />
+                        </defs>
+                        <clipPath id="b">
+                            <use xlink:href="#a" overflow="visible" />
+                        </clipPath>
+                        <path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z" />
+                        <path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" />
+                        <path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" />
+                        <path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" />
+                    </svg>
+                    <span class="ml-4">Log in with Google</span>
+                </div>
+            </button>
+
+            <div class="w-full text-center mt-6">
+                <p class="mt-8 text-slate-100 inline mr-1">Already have an account?</p>
+                <a href="/login" class="text-indigo-500 hover:text-indigo-600 font-semibold">Login</a>
+            </div>
+        </div>
+    </div>
+</section>

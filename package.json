@@ -1,0 +1,32 @@
+{
+  "name": "employee-data-management",
+  "version": "1.0.0",
+  "description": "latihan project nodejs",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "irfan ramdani",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.4",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.2.7",
+    "node-fetch": "^2.6.7",
+    "nodemon": "^2.0.15"
+  }
+}
